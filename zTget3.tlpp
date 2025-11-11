@@ -2,24 +2,23 @@
 #include 'Protheus.ch'
 
 /*
-    FunÁ„o: zTget3
     Objetivo:
-        Exemplo pr·tico de criaÁ„o de uma janela simples no Protheus
+        Exemplo pr√°tico de cria√ß√£o de uma janela simples no Protheus
         utilizando TDialog, TSay, TGet e TButton para realizar o
         bloqueio de um cliente diretamente pela interface.
 
-    DescriÁ„o:
-        O usu·rio informa o cÛdigo do cliente e a loja. Ao clicar no
-        bot„o "Bloquear Cliente", a funÁ„o executa a rotina fBloq(),
+    Descri√ß√£o:
+        O usu√°rio informa o c√≥digo do cliente e a loja. Ao clicar no
+        bot√£o "Bloquear Cliente", a fun√ß√£o executa a rotina fBloq(),
         que busca o cliente no cadastro (SA1) e altera o campo A1_MSBLQL
         para '1', sinalizando bloqueio.
 
     Este exemplo demonstra:
-        - ManipulaÁ„o de TGet com funÁ„o de leitura/escrita
-        - Uso de TSay como rÛtulo informativo
-        - CriaÁ„o de janelas com TDialog
-        - IntegraÁ„o entre interface e rotina de banco de dados
-        - AlteraÁ„o controlada de registro com RecLock / MsUnlock
+        - Manipula√ß√£o de TGet com fun√ß√£o de leitura/escrita
+        - Uso de TSay como r√≥tulo informativo
+        - Cria√ß√£o de janelas com TDialog
+        - Integra√ß√£o entre interface e rotina de banco de dados
+        - Altera√ß√£o controlada de registro com RecLock / MsUnlock
 */
 User Function zTget3()
 
@@ -28,14 +27,14 @@ Local oDlg1
 Local oSay1 , oSay2
 Local oButton1
 
-// Vari·veis que recebem os valores digitados nos campos
+// Vari√°veis que recebem os valores digitados nos campos
 Local cGet1 := Space(6)
 Local oGet1 
 
 Local cGet2 := Space(2)
 Local oGet2
 
-oDlg1       := TDialog()    :New(0,0,200,500,"Bloqueador de clientes",,,,,CLR_BLACK,CLR_WHITE,,,.T.) // CriaÁ„o da janela principal
+oDlg1       := TDialog()    :New(0,0,200,500,"Bloqueador de clientes",,,,,CLR_BLACK,CLR_WHITE,,,.T.) // Cria√ß√£o da janela principal
 
 //Campo Cliente
 oSay1       := TSay()       :New(10,10,{||"Cliente"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
@@ -47,26 +46,27 @@ oGet1:cF3   := "SA1" // Atalho de pesquisa via F3 apontando para o cadastro SA1
 oSay2       := TSay()       :New(10,60,{||"Loja"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
 oGet2       := TGet()       :New(25,60,{|u| IF(Pcount()>0,cGet2:=u,cGet2)},oDlg1,30,10,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet2,,,, )
 
-//Bot„o respons·vel por executar o bloqueio
+//Bot√£o respons√°vel por executar o bloqueio
 oButton1    := TButton()    :New(60,10, "Bloquear Cliente",   oDlg1,{|| fBloq(cGet1,cGet2)}, 50,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela de clientes 
 
 
-oDlg1:Activate(,,,.T.) //AtivaÁ„o da janela
+oDlg1:Activate(,,,.T.) //Ativa√ß√£o da janela
 
 return
 
-//FunÁ„o est·tica respons·vel pelo bloqueio do cliente
+//Fun√ß√£o est√°tica respons√°vel pelo bloqueio do cliente
 Static Function fBloq(cCod,cLoja)
 DbSelectArea("SA1") // Seleciona o cadastro de clientes
 
-SA1->(DbSeek(xFilial("SA1")+cCod+cLoja)) // Busca o cliente atravÈs da composiÁ„o: Filial + CÛdigo + Loja
+SA1->(DbSeek(xFilial("SA1")+cCod+cLoja)) // Busca o cliente atrav√©s da composi√ß√£o: Filial + C√≥digo + Loja
 
-// Bloqueia o registro para ediÁ„o
+// Bloqueia o registro para edi√ß√£o
 RecLock("SA1",.F.) 
     SA1->A1_MSBLQL := '1'
 MsUnlock()
 
-// Mensagem de confirmaÁ„o ao usu·rio
-Msginfo("O cliente com o cÛdigo "+cCod+" e loja " +cLoja+ "Est· sendo bloqueado!","ATEN«√O")
+// Mensagem de confirma√ß√£o ao usu√°rio
+Msginfo("O cliente com o c√≥digo "+cCod+" e loja " +cLoja+ "Est√° sendo bloqueado!","ATEN√á√ÉO")
 
 return 
+
