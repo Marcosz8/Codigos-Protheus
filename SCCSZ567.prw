@@ -15,7 +15,6 @@ Static Function BrowseDef()
 
     Local oBrowse := FwMBrowse():New()
 
-
     oBrowse:SetAlias("SZ5")
     oBrowse:SetDescription("Cadastro de Chamados")
 
@@ -23,7 +22,7 @@ Static Function BrowseDef()
     oBrowse:AddLegend("SZ5->Z5_STATUS == '2'","ORANGE", "EM ATENDIMENTO")
     oBrowse:AddLegend("SZ5->Z5_STATUS == '3'","GREEN" , "ENCERRADO")
 
-    // DEFINE DE ONDE SER¡ RETIRADO O MENUDEF
+    // DEFINE DE ONDE SER√Å RETIRADO O MENUDEF
     oBrowse:SetMenuDef("SCCSZ567")
 
     oBrowse:DisableDetails()
@@ -44,7 +43,7 @@ Static Function MenuDef()
 
 return aRotina
 
-// REGRAS DE NEG”CIO
+// REGRAS DE NEG√ìCIO
 Static Function ModelDef()
     // INSTANCIA O MODELO
     Local oModel := MPFormModel():New("SZ567M")
@@ -54,12 +53,12 @@ Static Function ModelDef()
     Local oStruSZ6 := FwFormStruct(1, "SZ6")
     Local oStruSZ7 := FwFormStruct(1, "SZ7")
    
-    // DEFINE SE OS SUBMODELOS SER√O FIELD OU GRID
+    // DEFINE SE OS SUBMODELOS SER√ÉO FIELD OU GRID
     oModel:AddFields("SZ5MASTER", NIL, oStruSZ5)
     oModel:AddGrid("SZ6DETAIL", "SZ5MASTER", oStruSZ6)
     oModel:AddGrid("SZ7DETAIL", "SZ6DETAIL", oStruSZ7)
 
-    // DEFINE A RELA«√O ENTRE OS SUBMODELOS
+    // DEFINE A RELA√á√ÉO ENTRE OS SUBMODELOS
     oModel:SetRelation("SZ6DETAIL", {{"Z6_FILIAL", "FwXFilial('SZ6')"}, {"Z6_NUMPROT", "Z5_NUMPROT"}}, SZ6->(IndexKey(1)))
     oModel:SetRelation("SZ7DETAIL", {{"Z7_FILIAL", "FwXFilial('SZ7')"}, {"Z7_NUMPROT", "Z5_NUMPROT"}, {"Z7_CODCHA", "Z6_CODCHA"}}, SZ7->(IndexKey(1)))
 
@@ -69,19 +68,17 @@ Static Function ModelDef()
     // GARANTE UNICIDADE DO ITEM DENTRO DO GRID
     oModel:GetModel("SZ6DETAIL"):SetUniqueLine({"Z6_CODCHA"})
         
-    // DESCRI«√O DO MODELO
+    // DESCRI√á√ÉO DO MODELO
     oModel:SetDescription("Sistema de Chamados")
 
-    // DESCRI«√O DOS SUBMODELOS
+    // DESCRI√á√ÉO DOS SUBMODELOS
     oModel:GetModel("SZ5MASTER"):SetDescription("Cadastro dos chamados")
     oModel:GetModel("SZ6DETAIL"):SetDescription("Andamento dos chamados")
-    oModel:GetModel("SZ7DETAIL"):SetDescription("InformaÁıes | Coment·rios")
+    oModel:GetModel("SZ7DETAIL"):SetDescription("Informa√ß√µes | Coment√°rios")
     
-    // Dentro do ModelDef, antes do Return oModel
-    oModel:GetModel("SZ7DETAIL"):SetOptional(.T.)
 Return oModel
 
-// INTERFACE GR¡FICA
+// INTERFACE GR√ÅFICA
 Static Function ViewDef()
     // INSTANCIA A VIEW
     Local oView := FwFormView():New()
@@ -94,7 +91,7 @@ Static Function ViewDef()
     // RECEBE O MODELO DE DADOS
     Local oModel := FwLoadModel("SCCSZ567")
 
-    // REMOVE CAMPOS DA EXIBI«√O
+    // REMOVE CAMPOS DA EXIBI√á√ÉO
     oStruSZ6:RemoveField("Z6_NUMPROT")
     oStruSZ7:RemoveField("Z7_NUMPROT")
     oStruSZ7:RemoveField("Z7_CODCHA")
@@ -122,10 +119,10 @@ Static Function ViewDef()
     oView:SetOwnerView("VIEW_SZ6", "MEIO")
     oView:SetOwnerView("VIEW_SZ7", "EMBAIXO")
 
-    // DEFINE OS TÕTULOS DAS SUBVIEWS
+    // DEFINE OS T√çTULOS DAS SUBVIEWS
     oView:EnableTitleView("VIEW_SZ5","Cadastro dos chamados")
     oView:EnableTitleView("VIEW_SZ6", "Andamento dos chamados")
-    oView:EnableTitleView("VIEW_SZ7", "InformaÁıes | Coment·rios")
+    oView:EnableTitleView("VIEW_SZ7", "Informa√ß√µes | Coment√°rios")
 
 Return oView
 
@@ -140,6 +137,7 @@ User Function SZ5LEGND()
     BrwLegenda("STATUS CHAMADO",aLegenda)
 
 Return aLegenda
+
 
 
 
