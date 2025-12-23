@@ -75,6 +75,8 @@ Static Function ModelDef()
     oModel:GetModel("SZ5MASTER"):SetDescription("Cadastro dos chamados")
     oModel:GetModel("SZ6DETAIL"):SetDescription("Andamento dos chamados")
     oModel:GetModel("SZ7DETAIL"):SetDescription("Informações | Comentários")
+
+    oModel:GetModel("SZ7DETAIL"):SetOptional(.T.)
     
 Return oModel
 
@@ -150,3 +152,4 @@ Return aLegenda
 
 
                                                                                                                          
+
