@@ -1,0 +1,50 @@
+#include 'TOTVS.CH'
+#include 'PROTHEUS.CH'
+
+/*/{Protheus.doc} zMsAdvsize
+dExemplo de criação de uma janela de utilitários no Protheus
+usando TDialog, TButton e TSay. O objetivo é demonstrar o uso
+da função MsAdvsize() para adaptação dinâmica da interface e
+a interação com funções padrão do sistema.
+@author Marcos
+@since 12/11/2025
+/*/
+User Function zMsAdvsize()
+Local oDlg1 // Declaração da janela principal
+
+// Botões e textos informativos
+Local oButton1, oButton2, oButton3, oButton4, oButton5
+Local oSay1, oSay2, oSay3, oSay4, oSay5 
+
+// Retorna um array com as coordenadas/dimensões da tela do usuário
+Local aSize := MsAdvsize() 
+
+/* Criação da janela principal com tamanho dinâmico
+MsAdvsize() permite adaptar a janela à resolução do ambiente Protheus */
+oDlg1       := TDialog():New(aSize[7],aSize[1],aSize[6],aSize[5],"Utilitarios do Protheus",,,,,CLR_BLACK,CLR_WHITE,,,.T.) //180,180 coordenadas da janela, 550,700 Tamanho da tela 
+
+// --- BOTÃO 1: CLIENTES ---
+oButton1    := TButton():New(20, 20, "Clientes",    oDlg1,{|| crma980()   }, 40,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela de clientes 
+oSay1       := TSay():New(22,70,{||"Clique aqui para abrir a tela de clientes"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20) // Objeto para incluir texto personalizado nas janelas
+
+// --- BOTÃO 2: FORNECEDORES ---
+oButton2    := TButton():New(40, 40, "Fornecedores",oDlg1,{|| mata020()   }, 40,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela de fornecedores
+oSay2       := TSay():New(42,90,{||"Clique aqui para abrir a tela de Fornecedores"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+// --- BOTÃO 3: BANCOS ---
+oButton3    := TButton():New(60, 60, "Bancos",      oDlg1,{|| mata070()   }, 40,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela dos bancos
+oSay3       := TSay():New(62,110,{||"Clique aqui para abrir a tela de Bancos"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+// --- BOTÃO 4: PRODUTOS ---
+oButton4    := TButton():New(80, 80, "Produtos",    oDlg1,{|| mata010()   }, 40,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela dos produtos
+oSay4       := TSay():New(82,130,{||"Clique aqui para abrir a tela de Produtos"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+// --- BOTÃO 5: FECHAR ---
+oButton5    := TButton():New(100, 100, "Fechar",    oDlg1,{|| oDlg1:End() }, 40,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Fechar a aplicação
+oSay5       := TSay():New(102,150,{||"Clique aqui para Fechar"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+
+// Ativa a janela (torna-a visível e interativa)
+oDlg1:Activate(,,,.F.) // Metodo que ativa essa classe
+
+
+return

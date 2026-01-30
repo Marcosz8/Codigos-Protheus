@@ -1,0 +1,43 @@
+#include 'TOTVS.CH'
+#include 'Protheus.ch'
+
+/*/{Protheus.doc} zTget
+Exemplo didático de criação de uma janela simples utilizando TDialog,
+TSay, TGet e TButton. O objetivo é demonstrar a captura de dados da
+interface e reforçar conceitos fundamentais do ADVPL.
+
+@type   Function
+@author Marcos
+@since  10/11/2025
+/*/
+User Function zTget()
+Local oDlg1
+Local cTituloJanela := "Aprendendo a usar o TGet"
+Local oSay1 , oSay2
+Local oButton1, oButton2
+
+
+
+Local cGet1 := Space(15) //
+Local oGet1 //Variável responsável por receber a Classe/Construtor TGet
+
+Local cGet2 := Space(25)
+Local oGet2
+
+
+oDlg1       := TDialog()    :New(0,0,500,500,cTituloJanela,,,,,CLR_BLACK,CLR_WHITE,,,.T.)
+
+// Campo 1 nome de usuário
+oSay1       := TSay()       :New(10,10,{||"Digite o seu nome"},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet1       := TGet()       :New(30,10,{|u| IF(Pcount()>0,cGet1:=u,cGet1)},oDlg1,060,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet1,,,, )
+oButton1    := TButton()    :New(50,10, "Mostrar o Nome",   oDlg1,{|| Msginfo(cGet1,"Conteúdo digitado")   }, 50,10,,,.F.,.T.,.F.,,.F.,,,.F. ) // Abre tela de clientes 
+// Campo 2 endereço 
+oSay2       := TSay()       :New(10,100,{||"Digite o seu endereço "},oDlg1,,,,,,.T.,CLR_BLUE,CLR_WHITE,300,20)
+oGet2       := TGet()       :New(30,100,{|u| IF(Pcount()>0,cGet2:=u,cGet2)},oDlg1,100,010,"@!",,0,,,.F.,,.T.,,.F.,,.F.,.F.,,.F.,.F.,,cGet2,,,, )
+oButton2    := TButton()    :New(50,100, "Mostrar o endereço",   oDlg1,{|| Msginfo(cGet2,"Conteúdo digitado")   }, 60,10,,,.F.,.T.,.F.,,.F.,,,.F. )
+
+// Ativação da Janela 
+
+oDlg1:Activate(,,,.F.)
+
+return
