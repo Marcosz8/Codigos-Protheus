@@ -12,13 +12,22 @@ Nessa pasta contém algumas aplicações em ADVPL legado que são as seguintes :
 ## Links com fotos e videos com as explicações de cada arquivo: 
 
 ### 1 - A010TOK:
- https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_boa-tarde-iniciando-meu-estudos-em-advpl-activity-7393739642971492353-fgPO?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+ https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7401937216874160128-tR2h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
 
-### 2 - Projeto_01:
-https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_hoje-finalizei-mais-um-exerc%C3%ADcio-pr%C3%A1tico-activity-7394056554003644416-EVM_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+### 2 - PROJETO_01:
 
-### 3 - Projeto_02:
-https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7394323735744401408-OpW_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+#### 📌 *PARTE 1 :*
+https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7397593633920774144-h0I9?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU	
+
+#### 📌 *PARTE 2 :*
+https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7398680565073399808-jM0x?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+
+#### 📌 *PARTE 3 :*
+https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7399402538682331136-CKg5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+
+### 3 - PROJETO_02:
+https://www.linkedin.com/posts/antonio-marcos-zanotti-06a7972bb_totvs-protheus-advpl-activity-7401215342322081794-pbp1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEzTDJIBuYcIX7VK6joyllv_7_vDUEyCwhU
+
 
 
 
